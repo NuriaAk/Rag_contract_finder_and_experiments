@@ -1,0 +1,1 @@
+export const text = 'ena_article_number, text)'

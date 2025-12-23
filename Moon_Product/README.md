@@ -2,15 +2,12 @@
 
 Our product simplifies the objection management process for electronic Nomination Agreements (eNA) by consolidating it onto a single platform. This streamlines negotiation on eNA points, saving time for purchasers and facilitating reaching agreement with suppliers.
 
-Here you can find only the RAG module.
-
 ## **Module Documentation: AI suggested final agreement RAG module Documentation**
 
 **Overview**
 Large Language Models (LLMs) are trained on vast datasets, yet they lack training on your specific data. Retrieval-Augmented Generation (RAG) addresses this gap by incorporating your data alongside the existing datasets accessible to LLMs.
 The RAG module is an important component of our system, focusing on generating contextually relevant responses by combining retrieval and generation techniques. Leveraging the LlamaIndex library, it integrates advanced text processing capabilities with an external AI model (OpenAI's GPT-3.5 Turbo) to generate contextually relevant answers. RAG is particularly suitable for scenarios requiring precise and informative responses, such as negotiations or inquiries within a corporate environment.
 
-<img src="https://docs.llamaindex.ai/en/stable/_static/getting_started/basic_rag.png" width="600">
 
 **Functionality**
 
@@ -79,177 +76,11 @@ For privacy and compliance purposes, sensitive data such as 'Comments' and 'Fina
 * Storing the indexes in the vector database such as Pinecone or ChromaDB can be considered as the next step of updating the RAG module.
 * Consider exploring cost-saving opportunities by transitioning to open-source Large Language Models (LLMs) such as `open-mistral-7b` from Mistral AI or `gemma-1.1-7b-it` from Google. These open-source LLMs offer powerful language processing capabilities while potentially reducing maintenance costs associated with proprietary solutions. Evaluate the suitability of these models for your application's requirements and budget constraints to make an informed decision about the transition.
 
-# **Moon Handover: Product Roadmap**
-
-As we transition the Moon app to its next phase, we're excited to share our plans for upcoming features and enhancements. Here's a glimpse into the most critical 10 features that are remaining on our roadmap:
-
-1. **Login Page Enhancement:** Enhance the login page to improve user experience and security.
-   
-2. **Departments Filtering:** Implement advanced filtering options to streamline navigation and organization within departments.
-   
-3. **Assigning Responsible Personnel:** Introduce functionality to assign and manage responsible personnel for specific tasks or incidents.
-      
-4. **Visibility of MAN Comment Column:** Enhance visibility and accessibility of MAN comment columns for improved collaboration and decision-making.
-   
-5. **MAN Comment History:** Provide access to the history of MAN comments for better tracking and auditing purposes.
-   
-6. **Export Functionality:** Introduce export functionality to allow users to export data for further analysis or reporting.
-   
-7. **PDF Format Support:** Enable exporting data in PDF format for easy sharing and printing.
-   
-8. **Excel Format Support:** Provide support for exporting data in Excel format, ensuring compatibility with various data analysis tools.
-   
-9. **Status of eNA Incidents:** Implement a feature to track and display the status of eNA incidents, providing transparency and accountability.
-
-# **Developer guide**
-## **Repo structure**
-<details>
-  <summary><b>Backend</b></summary>
-
-```
-└── .📁backend-express
-    └── .env
-    └── .env.template
-    └── .gitignore
-    └── .prettierrc
-    └── const.ts
-    └── 📁constants
-        └── prompt.ts
-        └── template.ts
-        └── text.ts
-        └── userData.ts
-    └── 📁controllers
-        └── enaArticles.ts
-        └── negotiation.ts
-        └── objection.ts
-        └── openai.ts
-    └── db.ts
-    └── index.ts
-    └── package-lock.json
-    └── package.json
-    └── pnpm-lock.yaml
-    └── 📁routes
-        └── email.ts
-        └── enaArticles.ts
-        └── negotiation.ts
-        └── objection.ts
-        └── rag.ts
-    └── tsconfig.json
-    └── 📁utils
-        └── emailService.ts
-        └── openai.ts
-```
-
-</details>
-
-<details>
-  <summary><b>Frontend</b></summary>
-
-
-```
-└── .📁frontend
-    └── .DS_Store
-    └── .env.template
-    └── .eslintrc.cjs
-    └── .gitignore
-    └── .prettierrc
-    └── Dockerfile
-    └── README.md
-    └── index.html
-    └── nginx.conf
-    └── package-lock.json
-    └── package.json
-    └── pnpm-lock.yaml
-    └── postcss.config.js
-    └── 📁public
-        └── dps_favicon.png
-        └── dps_touchicon.png
-    └── 📁src
-        └── .DS_Store
-        └── App.css
-        └── App.tsx
-        └── 📁assets
-            └── DPS.svg
-            └── Upload.svg
-            └── arrow-down.svg
-            └── arrow-up.svg
-            └── avatar.jpg
-            └── create_btn.svg
-            └── delete-icon.svg
-            └── doneLoading.svg
-            └── eightyPercentLoading.svg
-            └── fortyPercentLoading.svg
-            └── generic-photo.png
-            └── login.png
-            └── sixtyPercentLoading.svg
-            └── stageFour.png
-            └── stageOne.png
-            └── stageThree.png
-            └── stageTwo.png
-            └── startNewCommunication.png
-            └── submitButton.png
-            └── tenPercentLoading.svg
-            └── twentyPercentLoading.svg
-        └── 📁components
-            └── .DS_Store
-            └── addCommentsForm.tsx
-            └── allCommentsTable.tsx
-            └── communicationInformationForm.tsx
-            └── departmentCard.tsx
-            └── emptyWorklistDisplay.tsx
-            └── navbar.tsx
-            └── startCommunicationDisplay.tsx
-            └── worklistTable.tsx
-        └── const.ts
-        └── index.css
-        └── main.tsx
-        └── oldApp.tsx
-        └── 📁pages
-            └── CommunicationInfo.tsx
-            └── allComments.tsx
-            └── commentsSubmitted.tsx
-            └── contracts.tsx
-            └── emptyWorklist.tsx
-            └── login.tsx
-            └── supplierCommentsForm.tsx
-            └── worklist.tsx
-        └── vite-env.d.ts
-    └── tailwind.config.js
-    └── tsconfig.json
-    └── tsconfig.node.json
-    └── vite.config.ts
-```
-
-</details>
-
 
 ## Database Diagram
 
 <img src="https://drive.google.com/uc?export=view&id=1UKJzPodaoHNQy9ITEyEtlMMvgvquSaCZ" width=800>
 
-## Deployment Guide
-1. Clone this project
-2. Make sure you have Node.JS, React, npm, and Tailwind CSS installed.
-3. Set up your local PostgreSQL DB using the `DB_setup.txt` file provided and configure it properly in your local `.env` file.
-4. Run `npm install` in both `../backend-express` and `../frontend` folders.
-5. Run `npm run dev` in both `../backend-express` and `../frontend` folders to start the backend and frontend.
-6. You should be able to see the login page on http://localhost:8080/
+# Solution Diagram
 
-## Secrets
-
-### OpenAI 
-
-**Secret Name**
-
-OPENAI_API_KEY
-
-**Obtain**
-To obtain an OpenAI API key, follow these steps:
-
-1. Login Open AI account.
-1. Go to [API Keys Page](https://platform.openai.com/api-keys).
-1. Click "Create new secret key" button.
-1. Put it as a secret to the Github Actions page.
-
-
-# Rag_contract_finder_and_experiments
+<img src="https://drive.google.com/uc?export=view&id=1PcEoG_uzhAVaiSz7VxDSnBwk2PKPI0NZ" width=500>

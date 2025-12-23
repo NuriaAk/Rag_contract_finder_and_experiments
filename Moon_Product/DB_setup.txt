@@ -1,0 +1,28 @@
+-- ena_article
+CREATE TABLE ena_article (
+    number TEXT PRIMARY KEY,
+    text TEXT
+);
+INSERT INTO ena_article (number, text) VALUES 
+('1.1', 'txt'),
+...;
+
+-- Inserting dummy data into negotiation table
+INSERT INTO negotiation (ENA, company, address, DUNS, supplier, supplier_email, engineer, engineer_email, po, po_email)
+VALUES 
+    ('ENA001', 'Company A', 'adress', 'DUNS001', 'Supplier A', 'supplierA@example.com', 'Engineer X', 'engineerX@example.com', 'PO001', 'po001@example.com'),
+    ...
+
+CREATE TABLE objection (
+    ID SERIAL PRIMARY KEY,
+    ENA TEXT REFERENCES negotiation(ENA) ON UPDATE CASCADE,
+    article_number TEXT REFERENCES ena_article(number) ON UPDATE CASCADE,
+    reason TEXT,
+    suggestion TEXT
+);
+
+-- Inserting dummy data into objection table
+INSERT INTO objection (ENA, article_number, reason, suggestion)
+VALUES 
+    ('ENA001', '1.1', 'txt', 'txt'),
+    ...
