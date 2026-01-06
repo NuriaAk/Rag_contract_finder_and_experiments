@@ -84,3 +84,7 @@ For privacy and compliance purposes, sensitive data such as 'Comments' and 'Fina
 # Solution Diagram
 
 <img src="https://drive.google.com/uc?export=view&id=1PcEoG_uzhAVaiSz7VxDSnBwk2PKPI0NZ" width=500>
+
+## Secrets and local data
+- Do not commit API keys, tokens, or `.env` files; use `.env.example` for required variables.
+- Clear Jupyter outputs before publishing and avoid embedding real customer data in notebooks.

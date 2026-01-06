@@ -16,3 +16,7 @@ This project implements a **Retrieval-Augmented Generation (RAG)** service to au
 - QA & retrieval experiments using **Recursive Chunking** and **Markdown Node Parser**
 - Documented in `RAG_experiments`
 - Uses **only public, non-sensitive data**
+
+## Secrets and local data
+- Do not commit API keys, tokens, or `.env` files; use `.env.example` for required variables.
+- Clear Jupyter outputs before publishing and avoid embedding real customer data in notebooks.
